@@ -62,3 +62,12 @@ typings/
 
 # Cache used by TypeScript's incremental build
 *.tsbuildinfo
+.idea/.name
+.idea/Schneckenhof LB4 Cloudant REST API.iml
+.idea/codeStyles/Project.xml
+.idea/codeStyles/codeStyleConfig.xml
+.idea/encodings.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/markdown-navigator.xml
+.idea/markdown-navigator/profiles_settings.xml
+.idea/misc.xml

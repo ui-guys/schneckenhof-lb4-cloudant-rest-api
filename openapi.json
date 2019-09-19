@@ -1,0 +1,2565 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "LoopBack Application",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/logs/count": {
+      "get": {
+        "x-controller-name": "LogsController",
+        "x-operation-name": "count",
+        "tags": [
+          "LogsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Logs model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "operationId": "LogsController.count"
+      }
+    },
+    "/logs/{id}": {
+      "put": {
+        "x-controller-name": "LogsController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "LogsController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Logs PUT success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Logs"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "LogsController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "LogsController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "LogsController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Logs PATCH success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogsPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "LogsController.updateById"
+      },
+      "get": {
+        "x-controller-name": "LogsController",
+        "x-operation-name": "findById",
+        "tags": [
+          "LogsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Logs model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Logs"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "LogsController.findById"
+      },
+      "delete": {
+        "x-controller-name": "LogsController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "LogsController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Logs DELETE success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "LogsController.deleteById"
+      }
+    },
+    "/logs": {
+      "post": {
+        "x-controller-name": "LogsController",
+        "x-operation-name": "create",
+        "tags": [
+          "LogsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Logs model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Logs"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewLogs"
+              }
+            }
+          }
+        },
+        "operationId": "LogsController.create"
+      },
+      "patch": {
+        "x-controller-name": "LogsController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "LogsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Logs PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogsPartial"
+              }
+            }
+          }
+        },
+        "operationId": "LogsController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "LogsController",
+        "x-operation-name": "find",
+        "tags": [
+          "LogsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Logs model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Logs"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "where": {
+                  "type": "object"
+                },
+                "fields": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "boolean"
+                    },
+                    "hostname": {
+                      "type": "boolean"
+                    },
+                    "url": {
+                      "type": "boolean"
+                    },
+                    "APIResponseTime": {
+                      "type": "boolean"
+                    },
+                    "OverallResponseTime": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "boolean"
+                    },
+                    "time": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "limit": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "skip": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "order": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "LogsController.find"
+      }
+    },
+    "/news/count": {
+      "get": {
+        "x-controller-name": "NewsController",
+        "x-operation-name": "count",
+        "tags": [
+          "NewsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "News model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "operationId": "NewsController.count"
+      }
+    },
+    "/news/{id}": {
+      "put": {
+        "x-controller-name": "NewsController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "NewsController"
+        ],
+        "responses": {
+          "204": {
+            "description": "News PUT success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/News"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "NewsController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "NewsController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "NewsController"
+        ],
+        "responses": {
+          "204": {
+            "description": "News PATCH success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "NewsController.updateById"
+      },
+      "get": {
+        "x-controller-name": "NewsController",
+        "x-operation-name": "findById",
+        "tags": [
+          "NewsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "News model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/News"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "NewsController.findById"
+      },
+      "delete": {
+        "x-controller-name": "NewsController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "NewsController"
+        ],
+        "responses": {
+          "204": {
+            "description": "News DELETE success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "NewsController.deleteById"
+      }
+    },
+    "/news": {
+      "post": {
+        "x-controller-name": "NewsController",
+        "x-operation-name": "create",
+        "tags": [
+          "NewsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "News model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/News"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewNews"
+              }
+            }
+          }
+        },
+        "operationId": "NewsController.create"
+      },
+      "patch": {
+        "x-controller-name": "NewsController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "NewsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "News PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsPartial"
+              }
+            }
+          }
+        },
+        "operationId": "NewsController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "NewsController",
+        "x-operation-name": "find",
+        "tags": [
+          "NewsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of News model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/News"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "where": {
+                  "type": "object"
+                },
+                "fields": {
+                  "type": "object",
+                  "properties": {
+                    "relevantFrom": {
+                      "type": "boolean"
+                    },
+                    "relevantTo": {
+                      "type": "boolean"
+                    },
+                    "title": {
+                      "type": "boolean"
+                    },
+                    "id": {
+                      "type": "boolean"
+                    },
+                    "shortDescription": {
+                      "type": "boolean"
+                    },
+                    "description": {
+                      "type": "boolean"
+                    },
+                    "homePageDescription": {
+                      "type": "boolean"
+                    },
+                    "showOnHome": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "limit": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "skip": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "order": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "NewsController.find"
+      }
+    },
+    "/orders/count": {
+      "get": {
+        "x-controller-name": "OrderController",
+        "x-operation-name": "count",
+        "tags": [
+          "OrderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Order model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "operationId": "OrderController.count"
+      }
+    },
+    "/orders/{id}": {
+      "put": {
+        "x-controller-name": "OrderController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "OrderController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Order PUT success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Order"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "OrderController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "OrderController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "OrderController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Order PATCH success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "OrderController.updateById"
+      },
+      "get": {
+        "x-controller-name": "OrderController",
+        "x-operation-name": "findById",
+        "tags": [
+          "OrderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Order model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "OrderController.findById"
+      },
+      "delete": {
+        "x-controller-name": "OrderController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "OrderController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Order DELETE success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "OrderController.deleteById"
+      }
+    },
+    "/orders": {
+      "post": {
+        "x-controller-name": "OrderController",
+        "x-operation-name": "create",
+        "tags": [
+          "OrderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Order model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewOrder"
+              }
+            }
+          }
+        },
+        "operationId": "OrderController.create"
+      },
+      "patch": {
+        "x-controller-name": "OrderController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "OrderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Order PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderPartial"
+              }
+            }
+          }
+        },
+        "operationId": "OrderController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "OrderController",
+        "x-operation-name": "find",
+        "tags": [
+          "OrderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Order model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Order"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "where": {
+                  "type": "object"
+                },
+                "fields": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "boolean"
+                    },
+                    "email": {
+                      "type": "boolean"
+                    },
+                    "total": {
+                      "type": "boolean"
+                    },
+                    "id": {
+                      "type": "boolean"
+                    },
+                    "details": {
+                      "type": "boolean"
+                    },
+                    "created": {
+                      "type": "boolean"
+                    },
+                    "completed": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "limit": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "skip": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "order": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "OrderController.find"
+      }
+    },
+    "/packagings/count": {
+      "get": {
+        "x-controller-name": "PackagingController",
+        "x-operation-name": "count",
+        "tags": [
+          "PackagingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Packaging model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "operationId": "PackagingController.count"
+      }
+    },
+    "/packagings/{id}": {
+      "put": {
+        "x-controller-name": "PackagingController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "PackagingController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Packaging PUT success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Packaging"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PackagingController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "PackagingController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "PackagingController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Packaging PATCH success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PackagingPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PackagingController.updateById"
+      },
+      "get": {
+        "x-controller-name": "PackagingController",
+        "x-operation-name": "findById",
+        "tags": [
+          "PackagingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Packaging model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Packaging"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "PackagingController.findById"
+      },
+      "delete": {
+        "x-controller-name": "PackagingController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "PackagingController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Packaging DELETE success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "PackagingController.deleteById"
+      }
+    },
+    "/packagings": {
+      "post": {
+        "x-controller-name": "PackagingController",
+        "x-operation-name": "create",
+        "tags": [
+          "PackagingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Packaging model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Packaging"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPackaging"
+              }
+            }
+          }
+        },
+        "operationId": "PackagingController.create"
+      },
+      "patch": {
+        "x-controller-name": "PackagingController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "PackagingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Packaging PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PackagingPartial"
+              }
+            }
+          }
+        },
+        "operationId": "PackagingController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "PackagingController",
+        "x-operation-name": "find",
+        "tags": [
+          "PackagingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Packaging model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Packaging"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "where": {
+                  "type": "object"
+                },
+                "fields": {
+                  "type": "object",
+                  "properties": {
+                    "displayName": {
+                      "type": "boolean"
+                    },
+                    "measure": {
+                      "type": "boolean"
+                    },
+                    "unitOfMeasure": {
+                      "type": "boolean"
+                    },
+                    "id": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "limit": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "skip": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "order": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PackagingController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "greeting": {
+                      "type": "string"
+                    },
+                    "date": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "headers": {
+                      "type": "object",
+                      "properties": {
+                        "Content-Type": {
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/resources/count": {
+      "get": {
+        "x-controller-name": "ResourceController",
+        "x-operation-name": "count",
+        "tags": [
+          "ResourceController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "operationId": "ResourceController.count"
+      }
+    },
+    "/resources/{id}": {
+      "put": {
+        "x-controller-name": "ResourceController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ResourceController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Resource PUT success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Resource"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ResourceController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ResourceController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ResourceController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Resource PATCH success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourcePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ResourceController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ResourceController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ResourceController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resource"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ResourceController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ResourceController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ResourceController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Resource DELETE success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ResourceController.deleteById"
+      }
+    },
+    "/resources": {
+      "post": {
+        "x-controller-name": "ResourceController",
+        "x-operation-name": "create",
+        "tags": [
+          "ResourceController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resource"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewResource"
+              }
+            }
+          }
+        },
+        "operationId": "ResourceController.create"
+      },
+      "patch": {
+        "x-controller-name": "ResourceController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ResourceController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourcePartial"
+              }
+            }
+          }
+        },
+        "operationId": "ResourceController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ResourceController",
+        "x-operation-name": "find",
+        "tags": [
+          "ResourceController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Resource model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Resource"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "where": {
+                  "type": "object"
+                },
+                "fields": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "boolean"
+                    },
+                    "resourceId": {
+                      "type": "boolean"
+                    },
+                    "weblinkUrl": {
+                      "type": "boolean"
+                    },
+                    "originalFilename": {
+                      "type": "boolean"
+                    },
+                    "type": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "limit": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "skip": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "order": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ResourceController.find"
+      }
+    },
+    "/wines/count": {
+      "get": {
+        "x-controller-name": "WineController",
+        "x-operation-name": "count",
+        "tags": [
+          "WineController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Wine model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "operationId": "WineController.count"
+      }
+    },
+    "/wines/{id}": {
+      "put": {
+        "x-controller-name": "WineController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "WineController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Wine PUT success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Wine"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "WineController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "WineController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "WineController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Wine PATCH success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WinePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "WineController.updateById"
+      },
+      "get": {
+        "x-controller-name": "WineController",
+        "x-operation-name": "findById",
+        "tags": [
+          "WineController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Wine model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Wine"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "WineController.findById"
+      },
+      "delete": {
+        "x-controller-name": "WineController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "WineController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Wine DELETE success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "WineController.deleteById"
+      }
+    },
+    "/wines": {
+      "post": {
+        "x-controller-name": "WineController",
+        "x-operation-name": "create",
+        "tags": [
+          "WineController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Wine model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Wine"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewWine"
+              }
+            }
+          }
+        },
+        "operationId": "WineController.create"
+      },
+      "patch": {
+        "x-controller-name": "WineController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "WineController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Wine PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WinePartial"
+              }
+            }
+          }
+        },
+        "operationId": "WineController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "WineController",
+        "x-operation-name": "find",
+        "tags": [
+          "WineController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Wine model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Wine"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "where": {
+                  "type": "object"
+                },
+                "fields": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "boolean"
+                    },
+                    "name": {
+                      "type": "boolean"
+                    },
+                    "vintage": {
+                      "type": "boolean"
+                    },
+                    "id": {
+                      "type": "boolean"
+                    },
+                    "price": {
+                      "type": "boolean"
+                    },
+                    "awardText": {
+                      "type": "boolean"
+                    },
+                    "awardLevel": {
+                      "type": "boolean"
+                    },
+                    "image": {
+                      "type": "boolean"
+                    },
+                    "availability": {
+                      "type": "boolean"
+                    },
+                    "content": {
+                      "type": "boolean"
+                    },
+                    "varietal": {
+                      "type": "boolean"
+                    },
+                    "premium": {
+                      "type": "boolean"
+                    },
+                    "priority": {
+                      "type": "boolean"
+                    },
+                    "no": {
+                      "type": "boolean"
+                    },
+                    "alcohol": {
+                      "type": "boolean"
+                    },
+                    "description": {
+                      "type": "boolean"
+                    },
+                    "packagingId": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "offset": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "limit": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "skip": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "order": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "WineController.find"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Logs": {
+        "title": "Logs",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "hostname": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "APIResponseTime": {
+            "type": "object"
+          },
+          "OverallResponseTime": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewLogs": {
+        "title": "NewLogs",
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "id"
+              ]
+            }
+          ]
+        },
+        "properties": {
+          "hostname": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "APIResponseTime": {
+            "type": "object"
+          },
+          "OverallResponseTime": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "LogsPartial": {
+        "title": "LogsPartial",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "hostname": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "APIResponseTime": {
+            "type": "object"
+          },
+          "OverallResponseTime": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "News": {
+        "title": "News",
+        "properties": {
+          "relevantFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "relevantTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "shortDescription": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "homePageDescription": {
+            "type": "string"
+          },
+          "showOnHome": {
+            "type": "boolean"
+          }
+        }
+      },
+      "NewNews": {
+        "title": "NewNews",
+        "properties": {
+          "relevantFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "relevantTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "type": "string"
+          },
+          "shortDescription": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "homePageDescription": {
+            "type": "string"
+          },
+          "showOnHome": {
+            "type": "boolean"
+          }
+        },
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "id"
+              ]
+            }
+          ]
+        }
+      },
+      "NewsPartial": {
+        "title": "NewsPartial",
+        "properties": {
+          "relevantFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "relevantTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "shortDescription": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "homePageDescription": {
+            "type": "string"
+          },
+          "showOnHome": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Order": {
+        "title": "Order",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "total": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "details": {
+            "type": "object"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completed": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "created"
+        ]
+      },
+      "NewOrder": {
+        "title": "NewOrder",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "total": {
+            "type": "string"
+          },
+          "details": {
+            "type": "object"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completed": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "id"
+              ]
+            }
+          ]
+        },
+        "required": [
+          "created"
+        ]
+      },
+      "OrderPartial": {
+        "title": "OrderPartial",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "total": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "details": {
+            "type": "object"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completed": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Packaging": {
+        "title": "Packaging",
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "measure": {
+            "type": "string"
+          },
+          "unitOfMeasure": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "NewPackaging": {
+        "title": "NewPackaging",
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "measure": {
+            "type": "string"
+          },
+          "unitOfMeasure": {
+            "type": "string"
+          }
+        },
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "id"
+              ]
+            }
+          ]
+        }
+      },
+      "PackagingPartial": {
+        "title": "PackagingPartial",
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "measure": {
+            "type": "string"
+          },
+          "unitOfMeasure": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "Resource": {
+        "title": "Resource",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "resourceId": {
+            "type": "string"
+          },
+          "weblinkUrl": {
+            "type": "string"
+          },
+          "originalFilename": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "NewResource": {
+        "title": "NewResource",
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "id"
+              ]
+            }
+          ]
+        },
+        "properties": {
+          "resourceId": {
+            "type": "string"
+          },
+          "weblinkUrl": {
+            "type": "string"
+          },
+          "originalFilename": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "ResourcePartial": {
+        "title": "ResourcePartial",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "resourceId": {
+            "type": "string"
+          },
+          "weblinkUrl": {
+            "type": "string"
+          },
+          "originalFilename": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "Wine": {
+        "title": "Wine",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "vintage": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "awardText": {
+            "type": "string"
+          },
+          "awardLevel": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "availability": {
+            "type": "boolean"
+          },
+          "content": {
+            "type": "number"
+          },
+          "varietal": {
+            "type": "string"
+          },
+          "premium": {
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "boolean"
+          },
+          "no": {
+            "type": "number"
+          },
+          "alcohol": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "packagingId": {
+            "type": "string"
+          }
+        }
+      },
+      "NewWine": {
+        "title": "NewWine",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "vintage": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "awardText": {
+            "type": "string"
+          },
+          "awardLevel": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "availability": {
+            "type": "boolean"
+          },
+          "content": {
+            "type": "number"
+          },
+          "varietal": {
+            "type": "string"
+          },
+          "premium": {
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "boolean"
+          },
+          "no": {
+            "type": "number"
+          },
+          "alcohol": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "packagingId": {
+            "type": "string"
+          }
+        },
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "id"
+              ]
+            }
+          ]
+        }
+      },
+      "WinePartial": {
+        "title": "WinePartial",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "vintage": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "awardText": {
+            "type": "string"
+          },
+          "awardLevel": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "availability": {
+            "type": "boolean"
+          },
+          "content": {
+            "type": "number"
+          },
+          "varietal": {
+            "type": "string"
+          },
+          "premium": {
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "boolean"
+          },
+          "no": {
+            "type": "number"
+          },
+          "alcohol": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "packagingId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
